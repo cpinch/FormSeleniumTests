@@ -10,6 +10,9 @@ public class FormPage extends BasePage
 	public static final String FIRST_QUESTION_ENERGY_LABEL = "Energy", FIRST_QUESTION_OTHER_LABEL = "Other:";
 	public static final String[] FIRST_QUESTION_LABELS =
 	{ "Carbon", "Water", FIRST_QUESTION_ENERGY_LABEL, "Waste", FIRST_QUESTION_OTHER_LABEL };
+	public static final String THIRD_QUESTION_LA_LABEL = "Los Angeles";
+	public static final String[] THIRD_QUESTION_LABELS =
+	{ "San Diego", "New York", THIRD_QUESTION_LA_LABEL, "London", "Other:" };
 
 	public static FormPage navToFormPage(WebDriver driver)
 	{
@@ -84,5 +87,30 @@ public class FormPage extends BasePage
 		}
 		clearSelectionText.click();
 		getWait().until(ExpectedConditions.invisibilityOf(clearSelectionText));
+	}
+
+	/**
+	 * @param labelToSelect
+	 *            The label of the checkbox to interact with
+	 * @param flag
+	 *            The status that the checkbox should be, true for selected, false
+	 *            for unselected
+	 */
+	public void clickThirdQuestionCheckbox(String labelToSelect, boolean flag)
+	{
+		WebElement checkbox = getDriver()
+				.findElement(By.xpath("//div[contains(@data-params, 'mandatory')]//span[text()='" + labelToSelect
+						+ "']/../../../div[@role='checkbox']"));
+		if (checkbox.getAttribute("aria-checked").equals("true") != flag)
+		{
+			checkbox.click();
+		}
+	}
+
+	public boolean isThirdQuestionLabelledCheckboxSelected(String label)
+	{
+		return getDriver().findElement(By.xpath("//div[contains(@data-params, 'mandatory')]//span[text()='" + label
+				+ "']/../../../div[@role='checkbox']")).getAttribute("aria-checked").equals("true");
+
 	}
 }

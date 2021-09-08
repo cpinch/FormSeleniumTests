@@ -10,6 +10,7 @@ public class TestScripts
 		FormPage page = FormPage.navToFormPage(driver);
 
 		runFirstQuestionTests(page);
+		runOtherQuestionTests(page);
 
 		driver.quit();
 	}
@@ -23,5 +24,10 @@ public class TestScripts
 		FirstQuestionTests.validateTypeInOther(page);
 		FirstQuestionTests.validateTypeInOtherThenClear(page);
 		FirstQuestionTests.selectEnergy(page);
+	}
+
+	private void runOtherQuestionTests(FormPage page)
+	{
+		OtherQuestionTests.selectRandomAndLAThirdQuestion(page);
 	}
 }
