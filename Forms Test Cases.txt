@@ -1,0 +1,94 @@
+There would be additional steps to these tests to verify that, once you completed the form, the data you entered was saved, but I don't currently see how I can get that data, so ignoring those parts for now
+
+Forms Tests page
+	There are a bunch of test cases that could be written around the static content of this page, correct image, correct text, google account displayed, the 'Draft saved' message, etc. Listing out all of those would be dozens of tests and I get the feeling I'm already going overboard based on the time limit established for this test, so leaving them for now.
+
+	Section 1
+		Default before touching should be nothing selected, no text in other
+		Select one, should be selected
+		Select one, select another, only second should be selected
+		Select one, click clear selection, should be nothing selected
+		Start typing in the other area, should select other
+		Select one, start typing in the other area, should select other
+		Type in other, clear selection, shouldn't clear text from other
+		Select Energy, verify selected
+
+	Section 2
+		Default before touching should be 'Choose'
+		Select one, should be selected
+		Select one, select another, new option should be selected
+		Select one, select 'Choose', should be back to Choose
+		Select Water, verify selected
+
+	Section 3
+		Default before touching should be none selected
+		Select one, should be selected and accompanying image should have a green border
+		Select one, select another, both should be selected
+		Start typing in other, should select its checkbox
+		Select one, start typing in other, should select its checkbox and first one should still be selected
+		Select all, all should be selected
+		Select one, unselect it, should not be selected and accompanying image should not have a green border
+		Select a random checkbox (does not say it can't be LA, so if that happens will just leave that one selected) and then select LA checkbox
+
+	Section 4
+		Default before touching should be date mm/dd/yyyy time both blank and AM/PM box on AM
+		Select PM from AM/PM box, verify selected
+		Select PM then AM from AM/PM box, verify AM selected
+		Enter a random valid date and time, verify no error displayed
+		Enter a random valid date and no time, verify Invalid Time error displayed
+		Enter a random valid time and no date, verify Invalid Date error displayed
+		Enter a random valid date and invalid hour (<1 or >12), verify Invalid Time error displayed
+		Enter a random valid date and invalid minute (<0 or >59), verify Invalid Time error displayed
+		Enter a random valid time and invalid month (<1 or >12), verify Invalid Date error displayed
+		Enter a random valid time and invalid day (<1 or >31), verify Invalid Date error displayed
+		Enter a random valid time and invalid day for each month (ie Feb 29th), verify Invalid Date error displayed
+		Enter a random valid time and invalid year (future or <0), verify Invalid Date error displayed
+		Enter the date 07/04/1779 and time 05:55 PM, verify
+
+	Section 5
+		Default before touching should be empty text box
+		Does not appear to be any actual validation of this field, so test cases are limited to pretty much just the one listed scenario, as nothing prompts a response
+		Enter a random ASCII string that does not contain the characters a, !, *, [ or Z
+
+	Section 6
+		Default before touching should be none selected
+		Select a random #, verify selected
+		Select a #, select another, verify only second selected
+		Select a #, clear selection, verify nothing selected
+		Select 4
+
+	Section 7
+		Default before touching should be none selected
+		Select a random option for all 3, verify selections
+		Select a random option for one, select another option for the same, verify only second selected
+		Select a random option for all 3, clear selection, verify nothing selected
+		Select Yes/Maybe/No
+
+	Section 8
+		Default before touching should be none selected
+		Select a random option for all 3, verify selection
+		Select a random option for all 3, select a different random option for all 3, verify both selected for all 3
+		Select all options for all 3, verify selected
+		Select Yes,No/Maybe,Yes/Yes,No,Maybe, verify selected
+
+	Clear Form button
+		For each section, select an option, click clear form, verify nothing selected
+		Select an option for each form, click clear form, verify all selections cleared
+
+
+Media Tests page
+	There are a bunch of test cases that could be written around the static content of this page, correct image, correct text, google account displayed, the 'Draft saved' message, etc. Listing out all of those would be dozens of tests and I get the feeling I'm already going overboard based on the time limit established for this test, so leaving them for now.
+
+	Section 1
+		Validate video URL
+		Validate play button
+		Validate pause button
+	
+	Section 2
+		Validate video URL
+		Validate play button
+		Validate pause button
+	
+	Section 3
+		Validate image URL
+		validate image title and alt text
